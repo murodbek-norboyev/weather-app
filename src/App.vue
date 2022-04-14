@@ -9,7 +9,7 @@
             class="search-bar"
             placeholder="Search city ..."
             v-model="query"
-            @keypress="showWeather"
+            @keyup="showWeather"
             autocomplete="off"
         />
       </form>
@@ -40,6 +40,7 @@ export default {
       weather: {},
       cityFound: false,
       isDay: false,
+      sss: '',
       icons: {
         day: {
           sun: require('@/assets/images/sun.png'),
@@ -124,31 +125,31 @@ export default {
     icon() {
       if (this.cityFound) {
         if (this.isDay) {
-          if (this.weather.weather[0].main == "Clear") {
+          if (this.weather.weather[0].main === "Clear") {
             return this.icons.day.sun
-          } else if (this.weather.weather[0].main == "Clouds") {
+          } else if (this.weather.weather[0].main === "Clouds") {
             return this.icons.day.cloud
-          } else if (this.weather.weather[0].main == "Rain") {
+          } else if (this.weather.weather[0].main === "Rain") {
             return this.icons.day.rain
-          } else if (this.weather.weather[0].main == "Snow") {
+          } else if (this.weather.weather[0].main === "Snow") {
             return this.icons.day.snow
-          } else if (this.weather.weather[0].main == "Thunderstorm") {
+          } else if (this.weather.weather[0].main === "Thunderstorm") {
             return this.icons.day.storm
-          } else if (this.weather.weather[0].main == "Haze") {
+          } else if (this.weather.weather[0].main === "Haze") {
             return this.icons.day.mist
           }
         } else {
-          if (this.weather.weather[0].main == "Clear") {
+          if (this.weather.weather[0].main === "Clear") {
             return this.icons.night.sun
-          } else if (this.weather.weather[0].main == "Clouds") {
+          } else if (this.weather.weather[0].main === "Clouds") {
             return this.icons.night.cloud
-          } else if (this.weather.weather[0].main == "Rain") {
+          } else if (this.weather.weather[0].main === "Rain") {
             return this.icons.night.rain
-          } else if (this.weather.weather[0].main == "Snow") {
+          } else if (this.weather.weather[0].main === "Snow") {
             return this.icons.night.snow
-          } else if (this.weather.weather[0].main == "Thunderstorm") {
+          } else if (this.weather.weather[0].main === "Thunderstorm") {
             return this.icons.night.storm
-          } else if (this.weather.weather[0].main == "Haze") {
+          } else if (this.weather.weather[0].main === "Haze") {
             return this.icons.night.mist
           }
         }

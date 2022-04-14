@@ -21,7 +21,7 @@
         <p class="weather__content-temp">
           {{ Math.round(weather.main.temp) }} °C
         </p>
-        <img :src="icon" alt="{{ weather.name }}" class="weather__content-icon">
+        <img :src="icon" :alt="weather.name" class="weather__content-icon">
         <p class="weather__content-date">{{ weather.weather[0].main }}</p>
       </div>
 
@@ -175,13 +175,15 @@ export default {
   justify-content: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   background-image: url(assets/images/day.png);
 }
 
 .weather__app {
-  width: 550px;
-  padding: 45px 62px;
+  max-width: 550px;
+  width: calc(100% - 50px);
+  padding: 35px 30px;
   background: linear-gradient(
           180deg,
           rgba(244, 249, 253, 0.35) 0%,
@@ -190,15 +192,23 @@ export default {
   border: 3px solid rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(77.8321px);
   border-radius: 80px;
+
+  @media(min-width: 576px) {
+    padding: 45px 62px;
+  }
 }
 
 .search__box label {
-  font-size: 35px;
+  font-size: 28px;
   font-weight: 700;
   color: #000;
   text-align: center;
   display: block;
   margin-bottom: 25px;
+
+  @media(min-width: 576px) {
+    font-size: 35px;
+  }
 }
 
 .search__box input {
@@ -207,7 +217,7 @@ export default {
   border-radius: 20px;
   border: 2px solid rgba(255, 255, 255, 0.6);
   padding: 15px 10px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   background: linear-gradient(
           180deg,
@@ -217,6 +227,10 @@ export default {
   backdrop-filter: blur(77.8321px);
   color: #393838;
   outline: 0;
+
+  @media(min-width: 576px) {
+    font-size: 20px;
+  }
 }
 
 .search__box input::placeholder {
@@ -224,7 +238,7 @@ export default {
 }
 
 .weather__content {
-  margin-top: 60px;
+  margin-top: 40px;
   text-align: center;
   border-radius: 20px;
   padding: 25px 20px;
@@ -237,33 +251,54 @@ export default {
   7.78321px 7.78321px 31.1329px -3.11329px rgba(91, 115, 134, 0.78),
   inset 12.4531px 14.0098px 14.0098px rgba(255, 255, 255, 0.33),
   inset -9.33986px -10.8965px 12.4531px rgba(0, 0, 0, 0.05);
+
+  @media(min-width: 576px) {
+    margin-top: 60px;
+  }
 }
 
 .weather__content-title {
   color: #fff;
   font-weight: 700;
   margin-bottom: 20px;
+  font-size: 25px;
+
+  @media(min-width: 576px) {
+    font-size: 30px;
+  }
 }
 
 .weather__content-date {
   color: #fff;
   font-weight: 400;
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 0;
+  @media(min-width: 576px) {
+    font-size: 25px;
+  }
 }
 
 .weather__content-temp {
   font-weight: 700;
-  font-size: 40px;
+  font-size: 35px;
   color: #f8f8f8;
   text-shadow: 0px 3.11329px 6.22657px rgba(153, 178, 240, 0.74);
   margin-top: 25px;
+
+  @media(min-width: 576px) {
+    font-size: 40px;
+  }
 }
 
 .weather__content-icon {
   display: block;
-  max-width: 200px;
+  max-width: 130px;
   max-height: 150px;
   margin: 20px auto;
+
+  @media(min-width: 576px) {
+    max-width: 200px;
+    max-height: 150px;
+  }
 }
 </style>

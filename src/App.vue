@@ -191,10 +191,11 @@ export default {
   );
   border: 3px solid rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(77.8321px);
-  border-radius: 80px;
+  border-radius: 30px;
 
   @media(min-width: 576px) {
     padding: 45px 62px;
+    border-radius: 80px;
   }
 }
 

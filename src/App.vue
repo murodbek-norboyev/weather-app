@@ -7,7 +7,7 @@
             type="text"
             id="search"
             class="search-bar"
-            placeholder="Search country ..."
+            placeholder="Search city ..."
             v-model="query"
             @keypress="showWeather"
             autocomplete="off"
